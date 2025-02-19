@@ -5,7 +5,7 @@ from fastapi.responses import FileResponse
 
 app = FastAPI()
 
-@app.post("/extract-audio")
+@app.post("/audio")
 async def extract_audio(file: UploadFile = File(...)):
     if not file.content_type.startswith("video/"):
         raise HTTPException(status_code=400, detail="File must be a video")
